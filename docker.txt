@@ -1,0 +1,5 @@
+FROM centos9:latest
+RUN def yum install -y
+CMD ["httpd" "-D" "FORGROUND"]
+RAN "hellow wrld" > /var/www/html/index.html
+
