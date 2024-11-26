@@ -11,8 +11,8 @@ FROM centos:latest
 LABEL maintainer="your-email@example.com"
 
 # Update and install necessary packages (optional)
-RUN yum -y update && \
-    yum -y install vim curl wget
+RUN yum -y update && yum -y install epel-release && \
+yum -y clean all
 
 # Set the default command to run when the container starts
 CMD ["/bin/bash"]
