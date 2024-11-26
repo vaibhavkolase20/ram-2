@@ -11,8 +11,6 @@ FROM centos:latest
 LABEL maintainer="your-email@example.com"
 
 # Update and install necessary packages (optional)
-RUN dnf -y update && dnf -y install epel-release && \
-dnf -y clean all
-
+RUN dnf -y install httpd 
 # Set the default command to run when the container starts
 CMD ["/bin/bash"]
