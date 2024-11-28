@@ -1,8 +1,10 @@
- FROM ubuntu:20.04
- RUN apt-get update
- RUN apt-get install java -y
- ADD https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.33/bin/apache-tomcat-10.1.33.tar.gz /opt
- RUN tar -xvf ./apache-tomcat* -C /opt
- WORKDIR /opt/apache\*
- CMD ["catalina.sh","run"]
- EXPOSE 8080
+FROM ubuntu:20.04
+RUN apt-get update
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get install apache2 -y
+RUN echo "<h1> Hello Docker</h1>" > /var/www/html/index.html
+RUN apt-get clean
+EXPOSE 80
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+
+ 
