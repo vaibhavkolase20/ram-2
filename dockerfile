@@ -12,8 +12,11 @@ ENV TOMCAT_URL https://downloads.apache.org/tomcat/tomcat-10/v${TOMCAT_VERSION}/
 WORKDIR /opt
 
 # Download and extract Tomcat
-RUN apt-get update && apt-get install -y curl && \
-    curl -O ${TOMCAT_URL} && \
+# अप्ट-गेट अपडेट करा आणि curl इंस्टॉल करा
+RUN apt-get update && apt-get install -y curl tar
+
+# Tomcat URL आणि TGZ फाइल डाउनलोड करा
+RUN curl -O ${TOMCAT_URL} && \
     tar xvf ${TOMCAT_TGZ} && \
     rm -f ${TOMCAT_TGZ}
 
