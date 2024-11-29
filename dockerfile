@@ -1,32 +1,29 @@
+# Use Ubuntu as the base image
+FROM ubuntu:20.04
 
+# Set environment variables for Java
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+ENV PATH=$JAVA_HOME/bin:$PATH
 
-# Use the official OpenJDK image as the base image
-FROM openjdk:17-jdk-slim
+# Install dependencies: Java, wget (to download Tomcat), and unzip
+RUN apt-get update -y && \
+    apt-get install -y openjdk-8-jdk wget && \
+    apt-get clean
 
-# Set environment variables for Tomcat
-ENV TOMCAT_VERSION 9.0.97
-ENV TOMCAT_TGZ tomcat-${9.0.97}tar.gz
-ENV TOMCAT_URL https://dlcdn.apache.org/tomcat/tomcat-9/v${9.0.97}/bin/${9.0.97}
+# Download and extract Apache Tomcat 9
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.97/bin/apache-tomcat-9.0.97.tar.gz && \
+    tar -xvf apache-tomcat-9.0.97.tar.gz && \
+    mv apache-tomcat-9.0.97 /opt/tomcat && \
+    rm -f apache-tomcat-9.0.97.tar.gz
 
-# Set the working directory to /opt
-WORKDIR /opt
-
-# Download and extract Tomcat
-# अप्ट-गेट अपडेट करा आणि curl इंस्टॉल करा
-RUN apt-get update && apt-get install -y curl tar
-
-# Tomcat URL आणि TGZ फाइल डाउनलोड करा
-RUN curl -O ${TOMCAT_URL} && \
-    tar xvf ${TOMCAT_TGZ} && \
-    rm -f ${TOMCAT_TGZ}
+# Copy the .war file into the Tomcat webapps folder
+COPY project.war /opt/tomcat/webapps/
 
 # Expose port 8080 for the Tomcat server
 EXPOSE 8080
 
-# Set the environment variable for the Tomcat installation
-ENV CATALINA_HOME /opt/apache-tomcat-${9.0.97}
+# Set the default command to start Tomcat
+CMD ["/opt/tomcat/bin/catalina.sh", "run"]
 
-# Start Tomcat
-CMD ["/opt/apache-tomcat-${9.0.97}/bin/catalina.sh", "run"]
 
  
