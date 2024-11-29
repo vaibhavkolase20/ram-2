@@ -1,28 +1,19 @@
-# Use Ubuntu as the base image
-FROM ubuntu:20.04
+FROM centos
 
-# Set environment variables for Java
-ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
-ENV PATH=$JAVA_HOME/bin:$PATH
+RUN mkdir /opt/tomcat/
 
-# Install dependencies: Java, wget (to download Tomcat), and unzip
-RUN apt-get update -y && \
-    apt-get install -y openjdk-8-jdk wget && \
-    apt-get clean
+WORKDIR /opt/tomcat
+RUN curl -O https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.40/bin/apache-tomcat-8.5.40.tar.gz
+RUN tar xvfz apache*.tar.gz
+RUN mv apache-tomcat-8.5.40/* /opt/tomcat/.
+RUN yum -y install java
+RUN java -version
 
-# Download and extract Apache Tomcat 9
-RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.97/bin/apache-tomcat-9.0.97.tar.gz && \
-    tar -xvf apache-tomcat-9.0.97.tar.gz && \
-    mv apache-tomcat-9.0.97 /opt/tomcat && \
-    rm -f apache-tomcat-9.0.97.tar.gz
+WORKDIR /opt/tomcat/webapps
+RUN curl -O -L https://github.com/AKSarav/SampleWebApp/raw/master/dist/SampleWebApp.war
 
-# Copy the .war file into the Tomcat webapps folder
-COPY project.war /opt/tomcat/webapps/
-
-# Expose port 8080 for the Tomcat server
 EXPOSE 8080
 
-# Set the default command to start Tomcat
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
 
 
