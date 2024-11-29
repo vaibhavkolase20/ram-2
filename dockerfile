@@ -1,10 +1,8 @@
-FROM ubuntu:20.04
-RUN apt-get update
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get install apache2 -y
-RUN echo "<h1> Hello Docker</h1>" > /var/www/html/index.html
-RUN apt-get clean
-EXPOSE 80
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+FROM centos:latest
+RUN yum install java -yum
+ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.97/bin/apache-tomcat-9.0.97.tar.gz
+RUN tar -xv ./apache2-tomcat* -C /opt
+WORKDIR /opt/apache\*
+
 
  
