@@ -6,7 +6,7 @@ FROM openjdk:17-jdk-slim
 # Set environment variables for Tomcat
 ENV TOMCAT_VERSION 9.0.97
 ENV TOMCAT_TGZ tomcat-${9.0.97}tar.gz
-ENV TOMCAT_URL https://downloads.apache.org/tomcat/tomcat-10/v${9.0.97}/bin/${9.0.97}
+ENV TOMCAT_URL https://dlcdn.apache.org/tomcat/tomcat-9/v${9.0.97}/bin/${9.0.97}
 
 # Set the working directory to /opt
 WORKDIR /opt
@@ -24,9 +24,9 @@ RUN curl -O ${TOMCAT_URL} && \
 EXPOSE 8080
 
 # Set the environment variable for the Tomcat installation
-ENV CATALINA_HOME /opt/apache-tomcat-${TOMCAT_VERSION}
+ENV CATALINA_HOME /opt/apache-tomcat-${9.0.97}
 
 # Start Tomcat
-CMD ["/opt/apache-tomcat-${TOMCAT_VERSION}/bin/catalina.sh", "run"]
+CMD ["/opt/apache-tomcat-${9.0.97}/bin/catalina.sh", "run"]
 
  
