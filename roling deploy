@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app: nginx
   strategy:
-    type: RollingUpdate
+    type: 
     rollingUpdate:
       maxUnavailable: 1
       maxSurge: 2
