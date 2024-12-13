@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+    name: app1
+    labels: 
+        name: app1
+spec:
+    containers:
+    - name: http-echo
+      image: jxlwqq/http-echo
+      args:
+        - "--text=hellow world-1"
+        - "--addr=:80"
+---
+
+apiVersion: v1
+kind: Pod
+metadata: 
+    name: app2
+    labels: 
+        name: app2
+spec:
+    containers:
+    - name: http-echo
+      image: jxlwqq/http-echo
+      args:
+        - "--text=hellow world-2"
+        - "--addr=:80"
