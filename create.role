@@ -1,11 +1,9 @@
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: myrole
-rules: 
- - apiGroups: [""]
-   resources: ["pods"]git
-   verbs: ["get", "watch", "create", "list"]
-
-
-kubectl edit role myrole  #we edit role after applying 
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "watch", "create", "list"]
