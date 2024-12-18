@@ -1,0 +1,31 @@
+#1. Use curl to download the latest version of Helm. The download links for all supported architectures are available on the official website. For example, if your system uses the x64 architecture, type the following command to download the 3.16.2 version of Helm:
+
+curl -O https://get.helm.sh/helm-v3.16.2-linux-amd64.tar.gz
+
+#Wait for the download to finish.
+
+#Downloading Helm with the curl command.
+#2. Unpack the file using the Linux tar command:
+
+tar xvf helm-v3.16.2-linux-amd64.tar.gz
+
+#The output displays four unpacked files.
+
+#Unpacking Helm with the tar command.
+#3. Move the linux-amd64/helm file to the /usr/local/bin directory:
+
+sudo mv linux-amd64/helm /usr/local/bin
+
+#There is no output if the command is executed correctly.
+
+#4. Remove the downloaded file using the following command:
+
+rm helm-v3.16.2-linux-amd64.tar.gz
+
+#5. Remove the linux-amd64 directory to clean up space:
+
+rm -rf linux-amd64
+
+#6. Finally, verify you installed Helm by checking the version of the software3
+
+helm version
