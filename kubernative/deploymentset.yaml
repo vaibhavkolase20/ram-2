@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploy
+  labels:
+    app: myapp-2
+    key: value
+spec:
+  replicas: 3
+  # strategy:
+  #   type: Recreate
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: myapp-2
+    matchExpressions:
+    - {key: app, operator: In, values: [myapp-2] }
+  template:
+    metadata:
+      labels:
+        app: myapp-2
+    spec:
+      containers:
+        - name: myhttpd
+          image: httpd
+          ports:
+          - containerPort: 80
