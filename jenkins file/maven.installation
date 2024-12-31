@@ -1,16 +1,6 @@
 # How to create maven in ubuntu 
  
  1) first you create java
-     #How to install sonarueb in docker
-create one ec2 incetance
-1) tito midium
-2)base image ubuntu
-3) valume 20
-install docker in this instance
-1) apt-get update
-2) apt-get install docker.io
-install sonarqueb using this command
-docker run -itd --name SonarQueb-server -p 9000:9000 sonarqueb:lts-community
 
 
  2) copy packege
