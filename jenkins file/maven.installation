@@ -14,12 +14,14 @@
 
  5) after moving directory go to /opt and edit vim /etc/profile (add there this contain at last)
     export PATH$PATH: '/opt/apache-maven/bin'  
-   [ if this step is faile and your mvn comand don't show version then use step2]
-    step2 [ nano ~/.bashrc ==this is directory add in this directory bellow  code in last 
+    tray to acess it versetion using command(mvn --veresion)
+    [ if this step is faile and your mvn comand don't show version then use step2]
+    
+    step2 [come to home loction then use it = nano ~/.bashrc ==this is directory add in this directory bellow  code in last 
            export M2_HOME=/opt/maven
            export MAVEN_HOME=/opt/maven
            export PATH=${M2_HOME}/bin:${PATH}
-           source ~/.bashrc ] 
+           
 
 
  6) and check version 
