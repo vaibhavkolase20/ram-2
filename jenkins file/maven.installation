@@ -1,7 +1,7 @@
 # How to create maven in ubuntu 
  
  1) first you create java
-
+    sudo apt install fontconfig openjdk-17-jre
 
  2) copy packege
     curl -O https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
