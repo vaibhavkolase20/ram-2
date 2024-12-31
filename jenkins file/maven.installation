@@ -30,12 +30,30 @@
    mvn --version
 
  7) create project using command (create in /opt directory)
-  
-  mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false -DgroupId=my.package.path -DartifactId=myartifac
-1) using this command one project is created
+  1) mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false -DgroupId=my.package.path -DartifactId=myproject
+   #using this command one project is created
 2) install tree command for check our project directory
     apt-get install tree
  
+3) clone repogetory in /opt
+ git clone https://github.com/SurajBele/studentapp.ui.git
+
+4) cd studentapp.ui/
+5) mvn package == (using this command create package but it status is faile
+
+# How to resole this error 
+1) go to pom.
+  vim pom.xml
+2) and edit version 
+  lugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
+      [edit 2.6/version into 3.1.0/version]
+
+ after editing file again follow comand
+     mvn package
+
+
 
 8) this is the link of how to install maven in ubuntu
   https://www.geeksforgeeks.org/how-to-install-maven-on-linux/ 
