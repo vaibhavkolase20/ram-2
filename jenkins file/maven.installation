@@ -53,6 +53,8 @@
  after editing file again follow comand
      mvn package
 
+now  create target file and package
+
 
 
 8) this is the link of how to install maven in ubuntu
