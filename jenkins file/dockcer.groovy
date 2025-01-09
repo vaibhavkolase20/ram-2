@@ -1,4 +1,4 @@
-# how to install docker in jenkuns
+// how to install docker in jenkuns
 pipeline {
     agent { label 'node' }
 

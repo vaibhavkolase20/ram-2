@@ -1,0 +1,63 @@
+# How to create maven in ubuntu 
+ 
+ 1) first you create java
+    sudo apt install fontconfig openjdk-17-jre -y
+    java --version
+ 2) copy packege
+    curl -O https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
+
+ 3) extrack the file 
+   tar xzvf apache-maven-3.9.9-bin.tar.gz
+
+ 4) move this file into /bin directory
+    mv  apache-maven-3.9.9 /opt/apache-maven
+
+ 5) after moving directory go to /opt and edit vim /etc/profile (add there this contain at last)
+    export PATH$PATH: '/opt/apache-maven/bin'  
+    tray to acess it versetion using command(mvn --veresion)
+    [ if this step is faile and your mvn comand don't show version then use step2]
+    
+    step2 [come to home loction then use it = nano ~/.bashrc ==this is directory add in this directory bellow  code in last 
+           export M2_HOME=/opt/maven
+           export MAVEN_HOME=/opt/maven
+           export PATH=${M2_HOME}/bin:${PATH}
+
+          #in this configration you install maven
+            apt-get install maven
+
+
+ 6) and check version 
+   mvn --version
+
+ 7) create project using command (create in /opt directory)
+  1) mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false -DgroupId=my.package.path -DartifactId=myproject
+   #using this command one project is created
+2) install tree command for check our project directory
+    apt-get install tree
+ 
+3) clone repogetory in /opt
+ git clone https://github.com/SurajBele/studentapp.ui.git
+
+4) cd studentapp.ui/
+5) mvn package == (using this command create package but it status is faile
+
+# How to resole this error 
+1) go to pom.
+  vim pom.xml
+2) and edit version 
+  lugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
+      [edit 2.6/version into 3.1.0/version]
+
+ after editing file again follow comand
+     mvn package
+
+now  create target file and package
+
+
+
+8) this is the link of how to install maven in ubuntu
+  https://www.geeksforgeeks.org/how-to-install-maven-on-linux/ 
+
+
