@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "myserver" {
-  ami             = "ami-0e2c8caa4b6378d8c"  # Replace with correct AMI ID
+  ami             = "ami-0e2c8caa4b6378d8c"  
   key_name        = "vaibhav.key.pem"
   instance_type   = "t2.micro"
   vpc_security_group_ids = ["sg-0a7c002efafb49d30"]
