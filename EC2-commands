@@ -3,3 +3,13 @@ cat /etc/os-release
 free-m
 lscpu
 df -h
+
+| **Command**                             | **Use / Description**                                                                                                  |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `apt update`                            | Updates the list of available packages and their versions (but does not install or upgrade them).                      |
+| `apt-get install nginx -y`              | Installs the Nginx web server. The `-y` flag auto-confirms the installation.                                           |
+| `systemctl status nginx`                | Checks and displays the current status of the Nginx service (running, stopped, etc.).                                  |
+| `curl localhost`                        | Sends a request to the local server to check if the web server is working.                                             |
+| `cd /var/www/html`                      | Changes the current directory to the default web root directory for Nginx.                                             |
+| `echo "jay shree krushna" > index.html` | Creates or replaces the `index.html` file with the text "jay shree krushna"—this is what will be shown on the webpage. |
+
