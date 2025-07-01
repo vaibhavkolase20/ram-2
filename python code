@@ -22,3 +22,41 @@ elif choice == 4:
         print("Error 0 is not allowed:")
 else:
     print("Invalid choice plese Enter correct choice No..!")
+
+## Using loop same code but just different
+while True:
+    # युजरकडून दोन संख्या घ्या
+    a = int(input("Enter 1st number: "))
+    b = int(input("Enter 2nd number: "))
+
+    # ऑपरेशन्सची यादी दाखवा
+    print("\nSelect Operation:")
+    print("1. Addition (बेरीज)")
+    print("2. Subtraction (वजाबाकी)")
+    print("3. Multiplication (गुणाकार)")
+    print("4. Division (भागाकार)")
+    print("5. Exit (बाहेर पडा)")
+
+    # युजरचा पर्याय घ्या
+    choice = input("Enter your choice (1/2/3/4/5): ")
+
+    # ऑपरेशन्सनुसार कृती
+    if choice == '1':
+        print("Addition (बेरीज) =", a + b)
+    elif choice == '2':
+        print("Subtraction (वजाबाकी) =", a - b)
+    elif choice == '3':
+        print("Multiplication (गुणाकार) =", a * b)
+    elif choice == '4':
+        if b != 0:
+            print("Division (भागाकार) =", a / b)
+        else:
+            print("Error: 0 ने भाग करता येत नाही.")
+    elif choice == '5':
+        print("Thank you! Program Exit झाला.")
+        break  # लूप थांबवा
+    else:
+        print("Invalid choice. कृपया 1 ते 5 पर्यायांपैकी एक निवडा.")
+
+    print("\n-----------------------------\n")
+
