@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# 1. युजर तयार करा आणि होम डिरेक्टरीसह सेटअप करा
+sudo useradd -m -s /bin/bash rohit
+
+# 2. पासवर्ड सेट करा
+echo "rohit:Password@123" | sudo chpasswd
+
+# 3. sudo access द्या (optional)
+sudo usermod -aG sudo rohit
+
+# 4. युजरची होम डिरेक्टरीचे permission सेट करा (optional, पण safe)
+sudo chown rohit:rohit /home/rohit
+
+echo "User 'rohit' successfully created with home directory and sudo access."
